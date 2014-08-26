@@ -527,7 +527,7 @@ def content_disposition(filename, req):
     if browser == 'msie' and version < 9:
         return "attachment; filename=%s" % escaped
     elif browser == 'safari':
-        return "attachment; filename=%s" % filename
+        return "attachment; filename*=UTF-8''%s" % escaped # must use escaped filename, otherwise will download failed on safari
     else:
         return "attachment; filename*=UTF-8''%s" % escaped
 
