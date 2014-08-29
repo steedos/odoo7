@@ -542,6 +542,7 @@ html_template = """<!DOCTYPE html>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <title>SteedOS</title>
+        <meta property="qc:admins" content="103126444033634554736375" />
         <link rel="shortcut icon" href="http://www.steedos.com/website/img/steedos/AppIcon76x76.png" type="image/png"/>
         <link rel="stylesheet" href="/web/static/src/css/full.css" />
         %(css)s
