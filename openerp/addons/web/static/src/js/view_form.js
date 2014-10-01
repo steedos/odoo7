@@ -5468,7 +5468,13 @@ instance.web.form.FieldStatus = instance.web.form.AbstractField.extend({
     on_click_stage: function (ev) {
         var self = this;
         var $li = $(ev.currentTarget);
-        var val = parseInt($li.data("id"));
+        var val;
+        if (this.field.type == "many2one") {
+            val = parseInt($li.data("id"), 10);
+        }
+        else {
+            val = $li.data("id");
+        }
         if (val != self.get('value')) {
             this.view.recursive_save().done(function() {
                 var change = {};

@@ -994,7 +994,9 @@ instance.web.ListView.List = instance.web.Class.extend( /** @lends instance.web.
                 // name to be a string
                 $(self).trigger('action', [field.toString(), record_id, function (id) {
                     $target.removeAttr('disabled');
-                    return self.reload_record(self.records.get(id));
+                    //return self.reload_record(self.records.get(id));
+                    // TODO: 2014-10-01 Jack, reload the list view when click on a row button
+                    return self.view.reload()
                 }]);
             })
             .delegate('a', 'click', function (e) {

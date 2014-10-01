@@ -105,7 +105,7 @@ def transfer_field_to_modifiers(field, modifiers):
 # For non-tree views, the context shouldn't be given.
 def transfer_node_to_modifiers(node, modifiers, context=None, in_tree_view=False):
     if node.get('attrs'):
-        modifiers.update(eval(node.get('attrs')))
+        modifiers.update(eval(node.get('attrs'), context))
 
     if node.get('states'):
         if 'invisible' in modifiers and isinstance(modifiers['invisible'], list):
@@ -2275,6 +2275,8 @@ class BaseModel(object):
             ctx['base_model_name'] = parent_view_model
         else:
             ctx = context
+        # Jack 2014-10-01
+        ctx['uid'] = user
         xarch, xfields = self.__view_look_dom_arch(cr, user, result['arch'], view_id, context=ctx)
         result['arch'] = xarch
         result['fields'] = xfields
